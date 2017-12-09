@@ -1,0 +1,203 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAppointmentInfoLabel">Create or edit a Appointment Info</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!appointmentInfo.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="appointmentInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_trn">Trn</label>
+            <input type="number" class="form-control" name="trn" id="field_trn"
+                [(ngModel)]="appointmentInfo.trn" required/>
+            <div [hidden]="!(editForm.controls.trn?.dirty && editForm.controls.trn?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.trn?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.trn?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_groupMemId">Group Mem Id</label>
+            <input type="text" class="form-control" name="groupMemId" id="field_groupMemId"
+                [(ngModel)]="appointmentInfo.groupMemId" required/>
+            <div [hidden]="!(editForm.controls.groupMemId?.dirty && editForm.controls.groupMemId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.groupMemId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_quotaId">Quota Id</label>
+            <input type="text" class="form-control" name="quotaId" id="field_quotaId"
+                [(ngModel)]="appointmentInfo.quotaId" required/>
+            <div [hidden]="!(editForm.controls.quotaId?.dirty && editForm.controls.quotaId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.quotaId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_serviceType">Service Type</label>
+            <input type="text" class="form-control" name="serviceType" id="field_serviceType"
+                [(ngModel)]="appointmentInfo.serviceType" required/>
+            <div [hidden]="!(editForm.controls.serviceType?.dirty && editForm.controls.serviceType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.serviceType?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_apmidType">Apmid Type</label>
+            <input type="text" class="form-control" name="apmidType" id="field_apmidType"
+                [(ngModel)]="appointmentInfo.apmidType" required/>
+            <div [hidden]="!(editForm.controls.apmidType?.dirty && editForm.controls.apmidType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apmidType?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_apmidCode">Apmid Code</label>
+            <input type="text" class="form-control" name="apmidCode" id="field_apmidCode"
+                [(ngModel)]="appointmentInfo.apmidCode" required/>
+            <div [hidden]="!(editForm.controls.apmidCode?.dirty && editForm.controls.apmidCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apmidCode?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_appDob">App Dob</label>
+            <div class="input-group">
+                <input id="field_appDob" type="text" class="form-control" name="appDob" ngbDatepicker  #appDobDp="ngbDatepicker" [(ngModel)]="appointmentInfo.appDob"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="appDobDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_servicesNature">Services Nature</label>
+            <input type="text" class="form-control" name="servicesNature" id="field_servicesNature"
+                [(ngModel)]="appointmentInfo.servicesNature" required/>
+            <div [hidden]="!(editForm.controls.servicesNature?.dirty && editForm.controls.servicesNature?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.servicesNature?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ageInd">Age Ind</label>
+            <input type="text" class="form-control" name="ageInd" id="field_ageInd"
+                [(ngModel)]="appointmentInfo.ageInd" required/>
+            <div [hidden]="!(editForm.controls.ageInd?.dirty && editForm.controls.ageInd?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ageInd?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_prefilInd">Prefil Ind</label>
+            <input type="text" class="form-control" name="prefilInd" id="field_prefilInd"
+                [(ngModel)]="appointmentInfo.prefilInd" required/>
+            <div [hidden]="!(editForm.controls.prefilInd?.dirty && editForm.controls.prefilInd?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.prefilInd?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_active">Active</label>
+            <input type="text" class="form-control" name="active" id="field_active"
+                [(ngModel)]="appointmentInfo.active" required/>
+            <div [hidden]="!(editForm.controls.active?.dirty && editForm.controls.active?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.active?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createDate">Create Date</label>
+            <div class="input-group">
+                <input id="field_createDate" type="text" class="form-control" name="createDate" ngbDatepicker  #createDateDp="ngbDatepicker" [(ngModel)]="appointmentInfo.createDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="createDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.createDate?.dirty && editForm.controls.createDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createBy">Create By</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="appointmentInfo.createBy" required/>
+            <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdBy">Last Upd By</label>
+            <div class="input-group">
+                <input id="field_lastUpdBy" type="text" class="form-control" name="lastUpdBy" ngbDatepicker  #lastUpdByDp="ngbDatepicker" [(ngModel)]="appointmentInfo.lastUpdBy"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="lastUpdByDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.lastUpdBy?.dirty && editForm.controls.lastUpdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdDate">Last Upd Date</label>
+            <input type="text" class="form-control" name="lastUpdDate" id="field_lastUpdDate"
+                [(ngModel)]="appointmentInfo.lastUpdDate" required/>
+            <div [hidden]="!(editForm.controls.lastUpdDate?.dirty && editForm.controls.lastUpdDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
