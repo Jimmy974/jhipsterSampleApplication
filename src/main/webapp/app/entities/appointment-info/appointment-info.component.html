@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span>Appointment Infos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-appointment-info" [routerLink]="['/', { outlets: { popup: ['appointment-info-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Appointment Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="appointmentInfos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Trn</span></th>
+            <th><span>Group Mem Id</span></th>
+            <th><span>Quota Id</span></th>
+            <th><span>Service Type</span></th>
+            <th><span>Apmid Type</span></th>
+            <th><span>Apmid Code</span></th>
+            <th><span>App Dob</span></th>
+            <th><span>Services Nature</span></th>
+            <th><span>Age Ind</span></th>
+            <th><span>Prefil Ind</span></th>
+            <th><span>Active</span></th>
+            <th><span>Create Date</span></th>
+            <th><span>Create By</span></th>
+            <th><span>Last Upd By</span></th>
+            <th><span>Last Upd Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let appointmentInfo of appointmentInfos ;trackBy: trackId">
+                <td><a [routerLink]="['../appointment-info', appointmentInfo.id ]">{{appointmentInfo.id}}</a></td>
+                <td>{{appointmentInfo.trn}}</td>
+                <td>{{appointmentInfo.groupMemId}}</td>
+                <td>{{appointmentInfo.quotaId}}</td>
+                <td>{{appointmentInfo.serviceType}}</td>
+                <td>{{appointmentInfo.apmidType}}</td>
+                <td>{{appointmentInfo.apmidCode}}</td>
+                <td>{{appointmentInfo.appDob | date:'mediumDate'}}</td>
+                <td>{{appointmentInfo.servicesNature}}</td>
+                <td>{{appointmentInfo.ageInd}}</td>
+                <td>{{appointmentInfo.prefilInd}}</td>
+                <td>{{appointmentInfo.active}}</td>
+                <td>{{appointmentInfo.createDate | date:'mediumDate'}}</td>
+                <td>{{appointmentInfo.createBy}}</td>
+                <td>{{appointmentInfo.lastUpdBy | date:'mediumDate'}}</td>
+                <td>{{appointmentInfo.lastUpdDate}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../appointment-info', appointmentInfo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'appointment-info/'+ appointmentInfo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'appointment-info/'+ appointmentInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

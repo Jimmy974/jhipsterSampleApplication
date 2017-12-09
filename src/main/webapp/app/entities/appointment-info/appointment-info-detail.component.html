@@ -1,0 +1,82 @@
+
+<div *ngIf="appointmentInfo">
+    <h2><span>Appointment Info</span> {{appointmentInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Trn</span></dt>
+        <dd>
+            <span>{{appointmentInfo.trn}}</span>
+        </dd>
+        <dt><span>Group Mem Id</span></dt>
+        <dd>
+            <span>{{appointmentInfo.groupMemId}}</span>
+        </dd>
+        <dt><span>Quota Id</span></dt>
+        <dd>
+            <span>{{appointmentInfo.quotaId}}</span>
+        </dd>
+        <dt><span>Service Type</span></dt>
+        <dd>
+            <span>{{appointmentInfo.serviceType}}</span>
+        </dd>
+        <dt><span>Apmid Type</span></dt>
+        <dd>
+            <span>{{appointmentInfo.apmidType}}</span>
+        </dd>
+        <dt><span>Apmid Code</span></dt>
+        <dd>
+            <span>{{appointmentInfo.apmidCode}}</span>
+        </dd>
+        <dt><span>App Dob</span></dt>
+        <dd>
+            <span>{{appointmentInfo.appDob | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Services Nature</span></dt>
+        <dd>
+            <span>{{appointmentInfo.servicesNature}}</span>
+        </dd>
+        <dt><span>Age Ind</span></dt>
+        <dd>
+            <span>{{appointmentInfo.ageInd}}</span>
+        </dd>
+        <dt><span>Prefil Ind</span></dt>
+        <dd>
+            <span>{{appointmentInfo.prefilInd}}</span>
+        </dd>
+        <dt><span>Active</span></dt>
+        <dd>
+            <span>{{appointmentInfo.active}}</span>
+        </dd>
+        <dt><span>Create Date</span></dt>
+        <dd>
+            <span>{{appointmentInfo.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Create By</span></dt>
+        <dd>
+            <span>{{appointmentInfo.createBy}}</span>
+        </dd>
+        <dt><span>Last Upd By</span></dt>
+        <dd>
+            <span>{{appointmentInfo.lastUpdBy | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Last Upd Date</span></dt>
+        <dd>
+            <span>{{appointmentInfo.lastUpdDate}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'appointment-info/'+ appointmentInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

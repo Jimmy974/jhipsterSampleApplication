@@ -1,0 +1,26 @@
+entity AppointmentInfo {
+	trn Long required,
+    groupMemId String required,
+    quotaId String required,
+    serviceType String required,
+    apmidType String required,
+    apmidCode String required,
+    appDob LocalDate,
+    servicesNature String required,
+    ageInd String required,
+    prefilInd String required,
+    active String required,
+    createDate LocalDate required,
+    createBy String required,
+    lastUpdBy LocalDate required,
+    lastUpdDate String required
+    }
+
+
+
+    
+
+
+dto * with mapstruct
+
+
