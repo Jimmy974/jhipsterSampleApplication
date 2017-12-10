@@ -1,0 +1,88 @@
+<div>
+    <h2>
+        <span>Quota Plans</span>
+        <button class="btn btn-primary float-right jh-create-entity create-quota-plan" [routerLink]="['/', { outlets: { popup: ['quota-plan-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Quota Plan
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="quotaPlans">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Quota Id</span></th>
+            <th><span>Appt Type</span></th>
+            <th><span>Appt Date</span></th>
+            <th><span>Office Id</span></th>
+            <th><span>Interval</span></th>
+            <th><span>Start Time</span></th>
+            <th><span>End Time</span></th>
+            <th><span>Total Quota</span></th>
+            <th><span>Ava Quota</span></th>
+            <th><span>Used Quota</span></th>
+            <th><span>Freeze Quota</span></th>
+            <th><span>Vir Quota Used</span></th>
+            <th><span>Create Date</span></th>
+            <th><span>Create By</span></th>
+            <th><span>Last Upd Date</span></th>
+            <th><span>Last Upd By</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let quotaPlan of quotaPlans ;trackBy: trackId">
+                <td><a [routerLink]="['../quota-plan', quotaPlan.id ]">{{quotaPlan.id}}</a></td>
+                <td>{{quotaPlan.quotaId}}</td>
+                <td>{{quotaPlan.apptType}}</td>
+                <td>{{quotaPlan.apptDate | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.officeId | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.interval}}</td>
+                <td>{{quotaPlan.startTime | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.endTime | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.totalQuota}}</td>
+                <td>{{quotaPlan.avaQuota}}</td>
+                <td>{{quotaPlan.usedQuota}}</td>
+                <td>{{quotaPlan.freezeQuota}}</td>
+                <td>{{quotaPlan.virQuotaUsed}}</td>
+                <td>{{quotaPlan.createDate | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.createBy}}</td>
+                <td>{{quotaPlan.lastUpdDate | date:'mediumDate'}}</td>
+                <td>{{quotaPlan.lastUpdBy}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../quota-plan', quotaPlan.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'quota-plan/'+ quotaPlan.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'quota-plan/'+ quotaPlan.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

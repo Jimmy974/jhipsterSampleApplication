@@ -1,0 +1,100 @@
+<div>
+    <h2>
+        <span>Appointment Trans</span>
+        <button class="btn btn-primary float-right jh-create-entity create-appointment-trans" [routerLink]="['/', { outlets: { popup: ['appointment-trans-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Appointment Trans
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="appointmentTrans">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Ern</span></th>
+            <th><span>Trn</span></th>
+            <th><span>Pre Ern</span></th>
+            <th><span>Pre Trn</span></th>
+            <th><span>App Id</span></th>
+            <th><span>Export Status</span></th>
+            <th><span>Interface File</span></th>
+            <th><span>Control File</span></th>
+            <th><span>Export Time</span></th>
+            <th><span>Enq Code</span></th>
+            <th><span>Trans Time</span></th>
+            <th><span>Comm Channel</span></th>
+            <th><span>Comm Parameter</span></th>
+            <th><span>Is Not Sent</span></th>
+            <th><span>Is Rem Sent</span></th>
+            <th><span>Virtual Ind</span></th>
+            <th><span>Action</span></th>
+            <th><span>Active</span></th>
+            <th><span>Create Date</span></th>
+            <th><span>Create By</span></th>
+            <th><span>Last Upd By</span></th>
+            <th><span>Last Upd Date</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let appointmentTrans of appointmentTrans ;trackBy: trackId">
+                <td><a [routerLink]="['../appointment-trans', appointmentTrans.id ]">{{appointmentTrans.id}}</a></td>
+                <td>{{appointmentTrans.ern}}</td>
+                <td>{{appointmentTrans.trn}}</td>
+                <td>{{appointmentTrans.preErn}}</td>
+                <td>{{appointmentTrans.preTrn}}</td>
+                <td>{{appointmentTrans.appId}}</td>
+                <td>{{appointmentTrans.exportStatus}}</td>
+                <td>{{appointmentTrans.interfaceFile}}</td>
+                <td>{{appointmentTrans.controlFile}}</td>
+                <td>{{appointmentTrans.exportTime | date:'mediumDate'}}</td>
+                <td>{{appointmentTrans.enqCode}}</td>
+                <td>{{appointmentTrans.transTime | date:'mediumDate'}}</td>
+                <td>{{appointmentTrans.commChannel}}</td>
+                <td>{{appointmentTrans.commParameter}}</td>
+                <td>{{appointmentTrans.isNotSent}}</td>
+                <td>{{appointmentTrans.isRemSent}}</td>
+                <td>{{appointmentTrans.virtualInd}}</td>
+                <td>{{appointmentTrans.action}}</td>
+                <td>{{appointmentTrans.active}}</td>
+                <td>{{appointmentTrans.createDate | date:'mediumDate'}}</td>
+                <td>{{appointmentTrans.createBy}}</td>
+                <td>{{appointmentTrans.lastUpdBy | date:'mediumDate'}}</td>
+                <td>{{appointmentTrans.lastUpdDate}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../appointment-trans', appointmentTrans.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'appointment-trans/'+ appointmentTrans.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'appointment-trans/'+ appointmentTrans.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+
+<div *ngIf="appointmentTrans">
+    <h2><span>Appointment Trans</span> {{appointmentTrans.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Ern</span></dt>
+        <dd>
+            <span>{{appointmentTrans.ern}}</span>
+        </dd>
+        <dt><span>Trn</span></dt>
+        <dd>
+            <span>{{appointmentTrans.trn}}</span>
+        </dd>
+        <dt><span>Pre Ern</span></dt>
+        <dd>
+            <span>{{appointmentTrans.preErn}}</span>
+        </dd>
+        <dt><span>Pre Trn</span></dt>
+        <dd>
+            <span>{{appointmentTrans.preTrn}}</span>
+        </dd>
+        <dt><span>App Id</span></dt>
+        <dd>
+            <span>{{appointmentTrans.appId}}</span>
+        </dd>
+        <dt><span>Export Status</span></dt>
+        <dd>
+            <span>{{appointmentTrans.exportStatus}}</span>
+        </dd>
+        <dt><span>Interface File</span></dt>
+        <dd>
+            <span>{{appointmentTrans.interfaceFile}}</span>
+        </dd>
+        <dt><span>Control File</span></dt>
+        <dd>
+            <span>{{appointmentTrans.controlFile}}</span>
+        </dd>
+        <dt><span>Export Time</span></dt>
+        <dd>
+            <span>{{appointmentTrans.exportTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Enq Code</span></dt>
+        <dd>
+            <span>{{appointmentTrans.enqCode}}</span>
+        </dd>
+        <dt><span>Trans Time</span></dt>
+        <dd>
+            <span>{{appointmentTrans.transTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Comm Channel</span></dt>
+        <dd>
+            <span>{{appointmentTrans.commChannel}}</span>
+        </dd>
+        <dt><span>Comm Parameter</span></dt>
+        <dd>
+            <span>{{appointmentTrans.commParameter}}</span>
+        </dd>
+        <dt><span>Is Not Sent</span></dt>
+        <dd>
+            <span>{{appointmentTrans.isNotSent}}</span>
+        </dd>
+        <dt><span>Is Rem Sent</span></dt>
+        <dd>
+            <span>{{appointmentTrans.isRemSent}}</span>
+        </dd>
+        <dt><span>Virtual Ind</span></dt>
+        <dd>
+            <span>{{appointmentTrans.virtualInd}}</span>
+        </dd>
+        <dt><span>Action</span></dt>
+        <dd>
+            <span>{{appointmentTrans.action}}</span>
+        </dd>
+        <dt><span>Active</span></dt>
+        <dd>
+            <span>{{appointmentTrans.active}}</span>
+        </dd>
+        <dt><span>Create Date</span></dt>
+        <dd>
+            <span>{{appointmentTrans.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Create By</span></dt>
+        <dd>
+            <span>{{appointmentTrans.createBy}}</span>
+        </dd>
+        <dt><span>Last Upd By</span></dt>
+        <dd>
+            <span>{{appointmentTrans.lastUpdBy | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Last Upd Date</span></dt>
+        <dd>
+            <span>{{appointmentTrans.lastUpdDate}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'appointment-trans/'+ appointmentTrans.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

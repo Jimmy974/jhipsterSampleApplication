@@ -1,0 +1,86 @@
+
+<div *ngIf="quotaPlan">
+    <h2><span>Quota Plan</span> {{quotaPlan.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Quota Id</span></dt>
+        <dd>
+            <span>{{quotaPlan.quotaId}}</span>
+        </dd>
+        <dt><span>Appt Type</span></dt>
+        <dd>
+            <span>{{quotaPlan.apptType}}</span>
+        </dd>
+        <dt><span>Appt Date</span></dt>
+        <dd>
+            <span>{{quotaPlan.apptDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Office Id</span></dt>
+        <dd>
+            <span>{{quotaPlan.officeId | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Interval</span></dt>
+        <dd>
+            <span>{{quotaPlan.interval}}</span>
+        </dd>
+        <dt><span>Start Time</span></dt>
+        <dd>
+            <span>{{quotaPlan.startTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>End Time</span></dt>
+        <dd>
+            <span>{{quotaPlan.endTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Total Quota</span></dt>
+        <dd>
+            <span>{{quotaPlan.totalQuota}}</span>
+        </dd>
+        <dt><span>Ava Quota</span></dt>
+        <dd>
+            <span>{{quotaPlan.avaQuota}}</span>
+        </dd>
+        <dt><span>Used Quota</span></dt>
+        <dd>
+            <span>{{quotaPlan.usedQuota}}</span>
+        </dd>
+        <dt><span>Freeze Quota</span></dt>
+        <dd>
+            <span>{{quotaPlan.freezeQuota}}</span>
+        </dd>
+        <dt><span>Vir Quota Used</span></dt>
+        <dd>
+            <span>{{quotaPlan.virQuotaUsed}}</span>
+        </dd>
+        <dt><span>Create Date</span></dt>
+        <dd>
+            <span>{{quotaPlan.createDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Create By</span></dt>
+        <dd>
+            <span>{{quotaPlan.createBy}}</span>
+        </dd>
+        <dt><span>Last Upd Date</span></dt>
+        <dd>
+            <span>{{quotaPlan.lastUpdDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Last Upd By</span></dt>
+        <dd>
+            <span>{{quotaPlan.lastUpdBy}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'quota-plan/'+ quotaPlan.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
