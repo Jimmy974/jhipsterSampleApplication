@@ -1,0 +1,75 @@
+entity AppointmentInfo {
+    trn Long required,
+    groupMemId String required,
+    quotaId String required,
+    serviceType String required,
+    apmidType String required,
+    apmidCode String required,
+    appDob LocalDate,
+    servicesNature String required,
+    ageInd String required,
+    prefilInd String required,
+    active String required,
+    createDate LocalDate required,
+    createBy String required,
+    lastUpdBy LocalDate required,
+    lastUpdDate String required
+    }
+
+entity AppointmentTrans {
+ern Long required,
+trn Long required,
+preErn Long ,
+preTrn Long,
+appId Integer required,
+exportStatus String,
+interfaceFile String,
+controlFile String,
+exportTime LocalDate,
+enqCode Integer required,
+transTime LocalDate required,
+commChannel String required,
+commParameter String,
+isNotSent String required,
+isRemSent String required,
+virtualInd String required,
+action String required,
+active String required,
+createDate LocalDate required,
+createBy String required,
+lastUpdBy LocalDate required,
+lastUpdDate String required
+}
+
+
+entity QuotaPlan {
+
+quotaId String required,
+apptType String required,
+apptDate LocalDate required,
+officeId LocalDate required,
+interval Integer required,
+startTime LocalDate required,
+endTime LocalDate required,
+totalQuota Integer required,
+avaQuota Integer required,
+usedQuota Integer required,
+freezeQuota Integer required,
+virQuotaUsed Integer required,
+createDate LocalDate required,
+createBy String required,
+lastUpdDate LocalDate required,
+lastUpdBy String required
+}
+
+
+
+
+
+
+   
+
+
+dto * with mapstruct
+
+

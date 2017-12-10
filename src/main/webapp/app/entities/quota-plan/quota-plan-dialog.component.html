@@ -1,0 +1,255 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myQuotaPlanLabel">Create or edit a Quota Plan</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!quotaPlan.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="quotaPlan.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_quotaId">Quota Id</label>
+            <input type="text" class="form-control" name="quotaId" id="field_quotaId"
+                [(ngModel)]="quotaPlan.quotaId" required/>
+            <div [hidden]="!(editForm.controls.quotaId?.dirty && editForm.controls.quotaId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.quotaId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_apptType">Appt Type</label>
+            <input type="text" class="form-control" name="apptType" id="field_apptType"
+                [(ngModel)]="quotaPlan.apptType" required/>
+            <div [hidden]="!(editForm.controls.apptType?.dirty && editForm.controls.apptType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apptType?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_apptDate">Appt Date</label>
+            <div class="input-group">
+                <input id="field_apptDate" type="text" class="form-control" name="apptDate" ngbDatepicker  #apptDateDp="ngbDatepicker" [(ngModel)]="quotaPlan.apptDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="apptDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.apptDate?.dirty && editForm.controls.apptDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.apptDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_officeId">Office Id</label>
+            <div class="input-group">
+                <input id="field_officeId" type="text" class="form-control" name="officeId" ngbDatepicker  #officeIdDp="ngbDatepicker" [(ngModel)]="quotaPlan.officeId"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="officeIdDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.officeId?.dirty && editForm.controls.officeId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.officeId?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_interval">Interval</label>
+            <input type="number" class="form-control" name="interval" id="field_interval"
+                [(ngModel)]="quotaPlan.interval" required/>
+            <div [hidden]="!(editForm.controls.interval?.dirty && editForm.controls.interval?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.interval?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.interval?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_startTime">Start Time</label>
+            <div class="input-group">
+                <input id="field_startTime" type="text" class="form-control" name="startTime" ngbDatepicker  #startTimeDp="ngbDatepicker" [(ngModel)]="quotaPlan.startTime"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="startTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.startTime?.dirty && editForm.controls.startTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.startTime?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_endTime">End Time</label>
+            <div class="input-group">
+                <input id="field_endTime" type="text" class="form-control" name="endTime" ngbDatepicker  #endTimeDp="ngbDatepicker" [(ngModel)]="quotaPlan.endTime"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="endTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.endTime?.dirty && editForm.controls.endTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.endTime?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_totalQuota">Total Quota</label>
+            <input type="number" class="form-control" name="totalQuota" id="field_totalQuota"
+                [(ngModel)]="quotaPlan.totalQuota" required/>
+            <div [hidden]="!(editForm.controls.totalQuota?.dirty && editForm.controls.totalQuota?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.totalQuota?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.totalQuota?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_avaQuota">Ava Quota</label>
+            <input type="number" class="form-control" name="avaQuota" id="field_avaQuota"
+                [(ngModel)]="quotaPlan.avaQuota" required/>
+            <div [hidden]="!(editForm.controls.avaQuota?.dirty && editForm.controls.avaQuota?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.avaQuota?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.avaQuota?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_usedQuota">Used Quota</label>
+            <input type="number" class="form-control" name="usedQuota" id="field_usedQuota"
+                [(ngModel)]="quotaPlan.usedQuota" required/>
+            <div [hidden]="!(editForm.controls.usedQuota?.dirty && editForm.controls.usedQuota?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.usedQuota?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.usedQuota?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_freezeQuota">Freeze Quota</label>
+            <input type="number" class="form-control" name="freezeQuota" id="field_freezeQuota"
+                [(ngModel)]="quotaPlan.freezeQuota" required/>
+            <div [hidden]="!(editForm.controls.freezeQuota?.dirty && editForm.controls.freezeQuota?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.freezeQuota?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.freezeQuota?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_virQuotaUsed">Vir Quota Used</label>
+            <input type="number" class="form-control" name="virQuotaUsed" id="field_virQuotaUsed"
+                [(ngModel)]="quotaPlan.virQuotaUsed" required/>
+            <div [hidden]="!(editForm.controls.virQuotaUsed?.dirty && editForm.controls.virQuotaUsed?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.virQuotaUsed?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.virQuotaUsed?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createDate">Create Date</label>
+            <div class="input-group">
+                <input id="field_createDate" type="text" class="form-control" name="createDate" ngbDatepicker  #createDateDp="ngbDatepicker" [(ngModel)]="quotaPlan.createDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="createDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.createDate?.dirty && editForm.controls.createDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createBy">Create By</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="quotaPlan.createBy" required/>
+            <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdDate">Last Upd Date</label>
+            <div class="input-group">
+                <input id="field_lastUpdDate" type="text" class="form-control" name="lastUpdDate" ngbDatepicker  #lastUpdDateDp="ngbDatepicker" [(ngModel)]="quotaPlan.lastUpdDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="lastUpdDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.lastUpdDate?.dirty && editForm.controls.lastUpdDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdBy">Last Upd By</label>
+            <input type="text" class="form-control" name="lastUpdBy" id="field_lastUpdBy"
+                [(ngModel)]="quotaPlan.lastUpdBy" required/>
+            <div [hidden]="!(editForm.controls.lastUpdBy?.dirty && editForm.controls.lastUpdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

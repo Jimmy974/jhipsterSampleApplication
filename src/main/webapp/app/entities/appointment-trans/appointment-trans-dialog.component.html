@@ -1,0 +1,261 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAppointmentTransLabel">Create or edit a Appointment Trans</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!appointmentTrans.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="appointmentTrans.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_ern">Ern</label>
+            <input type="number" class="form-control" name="ern" id="field_ern"
+                [(ngModel)]="appointmentTrans.ern" required/>
+            <div [hidden]="!(editForm.controls.ern?.dirty && editForm.controls.ern?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ern?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.ern?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_trn">Trn</label>
+            <input type="number" class="form-control" name="trn" id="field_trn"
+                [(ngModel)]="appointmentTrans.trn" required/>
+            <div [hidden]="!(editForm.controls.trn?.dirty && editForm.controls.trn?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.trn?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.trn?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_preErn">Pre Ern</label>
+            <input type="number" class="form-control" name="preErn" id="field_preErn"
+                [(ngModel)]="appointmentTrans.preErn" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_preTrn">Pre Trn</label>
+            <input type="number" class="form-control" name="preTrn" id="field_preTrn"
+                [(ngModel)]="appointmentTrans.preTrn" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_appId">App Id</label>
+            <input type="number" class="form-control" name="appId" id="field_appId"
+                [(ngModel)]="appointmentTrans.appId" required/>
+            <div [hidden]="!(editForm.controls.appId?.dirty && editForm.controls.appId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.appId?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.appId?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_exportStatus">Export Status</label>
+            <input type="text" class="form-control" name="exportStatus" id="field_exportStatus"
+                [(ngModel)]="appointmentTrans.exportStatus" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_interfaceFile">Interface File</label>
+            <input type="text" class="form-control" name="interfaceFile" id="field_interfaceFile"
+                [(ngModel)]="appointmentTrans.interfaceFile" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_controlFile">Control File</label>
+            <input type="text" class="form-control" name="controlFile" id="field_controlFile"
+                [(ngModel)]="appointmentTrans.controlFile" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_exportTime">Export Time</label>
+            <div class="input-group">
+                <input id="field_exportTime" type="text" class="form-control" name="exportTime" ngbDatepicker  #exportTimeDp="ngbDatepicker" [(ngModel)]="appointmentTrans.exportTime"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="exportTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_enqCode">Enq Code</label>
+            <input type="number" class="form-control" name="enqCode" id="field_enqCode"
+                [(ngModel)]="appointmentTrans.enqCode" required/>
+            <div [hidden]="!(editForm.controls.enqCode?.dirty && editForm.controls.enqCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enqCode?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.enqCode?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_transTime">Trans Time</label>
+            <div class="input-group">
+                <input id="field_transTime" type="text" class="form-control" name="transTime" ngbDatepicker  #transTimeDp="ngbDatepicker" [(ngModel)]="appointmentTrans.transTime"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="transTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.transTime?.dirty && editForm.controls.transTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.transTime?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_commChannel">Comm Channel</label>
+            <input type="text" class="form-control" name="commChannel" id="field_commChannel"
+                [(ngModel)]="appointmentTrans.commChannel" required/>
+            <div [hidden]="!(editForm.controls.commChannel?.dirty && editForm.controls.commChannel?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.commChannel?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_commParameter">Comm Parameter</label>
+            <input type="text" class="form-control" name="commParameter" id="field_commParameter"
+                [(ngModel)]="appointmentTrans.commParameter" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isNotSent">Is Not Sent</label>
+            <input type="text" class="form-control" name="isNotSent" id="field_isNotSent"
+                [(ngModel)]="appointmentTrans.isNotSent" required/>
+            <div [hidden]="!(editForm.controls.isNotSent?.dirty && editForm.controls.isNotSent?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isNotSent?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isRemSent">Is Rem Sent</label>
+            <input type="text" class="form-control" name="isRemSent" id="field_isRemSent"
+                [(ngModel)]="appointmentTrans.isRemSent" required/>
+            <div [hidden]="!(editForm.controls.isRemSent?.dirty && editForm.controls.isRemSent?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isRemSent?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_virtualInd">Virtual Ind</label>
+            <input type="text" class="form-control" name="virtualInd" id="field_virtualInd"
+                [(ngModel)]="appointmentTrans.virtualInd" required/>
+            <div [hidden]="!(editForm.controls.virtualInd?.dirty && editForm.controls.virtualInd?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.virtualInd?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_action">Action</label>
+            <input type="text" class="form-control" name="action" id="field_action"
+                [(ngModel)]="appointmentTrans.action" required/>
+            <div [hidden]="!(editForm.controls.action?.dirty && editForm.controls.action?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.action?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_active">Active</label>
+            <input type="text" class="form-control" name="active" id="field_active"
+                [(ngModel)]="appointmentTrans.active" required/>
+            <div [hidden]="!(editForm.controls.active?.dirty && editForm.controls.active?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.active?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createDate">Create Date</label>
+            <div class="input-group">
+                <input id="field_createDate" type="text" class="form-control" name="createDate" ngbDatepicker  #createDateDp="ngbDatepicker" [(ngModel)]="appointmentTrans.createDate"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="createDateDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.createDate?.dirty && editForm.controls.createDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_createBy">Create By</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="appointmentTrans.createBy" required/>
+            <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdBy">Last Upd By</label>
+            <div class="input-group">
+                <input id="field_lastUpdBy" type="text" class="form-control" name="lastUpdBy" ngbDatepicker  #lastUpdByDp="ngbDatepicker" [(ngModel)]="appointmentTrans.lastUpdBy"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="lastUpdByDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.lastUpdBy?.dirty && editForm.controls.lastUpdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdBy?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdDate">Last Upd Date</label>
+            <input type="text" class="form-control" name="lastUpdDate" id="field_lastUpdDate"
+                [(ngModel)]="appointmentTrans.lastUpdDate" required/>
+            <div [hidden]="!(editForm.controls.lastUpdDate?.dirty && editForm.controls.lastUpdDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastUpdDate?.errors?.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
